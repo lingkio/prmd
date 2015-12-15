@@ -71,9 +71,9 @@ HTTP/1.1 <%=
 <%-   elsif link.has_key?('targetSchema') %>
 <%=     JSON.pretty_generate(schema.schema_example(link['targetSchema'])) %>
 <%-   elsif link['rel'] == 'instances' %>
-<%=     JSON.pretty_generate([schema.schemata_example(resource)]) %>
+<%=     JSON.pretty_generate({"data":[schema.schemata_example(resource)]}) %>
 <%-   else %>
-<%=     JSON.pretty_generate(schema.schemata_example(resource)) %>
+<%=     JSON.pretty_generate({"data":[schema.schemata_example(resource)]}) %>
 <%-   end %>
 <%- end %>
 ```
